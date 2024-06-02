@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:09:02 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/01 15:55:20 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/02 02:01:09 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	select_it(Phonebook phonebook)
 		std::cout << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
 		return;
 	}
-	if (!phonebook.empty && index >= 0 && index <= phonebook.ix)
+	std::cout << phonebook.ix << std::endl;
+	if (!phonebook.empty && index >= 0 && index <= phonebook.count)
 	{
 		std::cout << "First_name :" << phonebook.contact[index].get_first_name() << std::endl;
 		std::cout << "Last_name :" << phonebook.contact[index].get_last_name() << std::endl;
