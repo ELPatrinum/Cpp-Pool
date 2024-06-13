@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 09:20:35 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/02 15:46:59 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/06/13 07:35:15 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/06/13 07:36:20 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-Zombie *newZombie(std::string name)
+void attack()
 {
-	Zombie *new_zombie = new Zombie(name);
-	return (new_zombie);
+	
+}
+HumanA(std::string _type)
+{
+	
 }

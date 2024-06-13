@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 09:20:35 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/02 15:46:59 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/06/10 20:51:16 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/06/10 21:05:32 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-Zombie *newZombie(std::string name)
+# include <iostream>
+
+class Weapon
 {
-	Zombie *new_zombie = new Zombie(name);
-	return (new_zombie);
-}
+	std::string type;
+public :
+	std::string getType();
+	void setType(std::string _type);
+};
+#endif
