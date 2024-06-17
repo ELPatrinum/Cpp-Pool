@@ -12,8 +12,8 @@
 
 C := c++
 FLAGS := -std=c++98 -Wall -Wextra -Werror
-SRC := main.cpp 
-HEADER_FILE := 
+SRC := main.cpp  HumanA.cpp HumanB.cpp Weapon.cpp
+HEADER_FILE := HumanA.hpp HumanB.hpp Weapon.hpp
 OBJS := $(SRC:%.cpp=%.o)
 NAME := Violence
 
