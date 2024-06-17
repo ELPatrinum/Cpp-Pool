@@ -5,30 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 20:50:07 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/10 20:50:08 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/06/17 18:07:17 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/06/17 18:44:45 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "FR.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.set_type("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.set_weapon(club);
-		jim.attack();
-		club.set_type("some other type of club");
-		jim.attack();
-	}
-	return 0;
+    if (ac == 4)
+    {
+        FR fr(av[1]);
+        bool result = fr.find_and_replace(av[2], av[3]);
+        if (!result)
+            return (1);
+        return (0);
+    }
+    else
+        std::cerr << "FR : Usage : <filename> <Find> <Replace>. " << std::endl;
+    return (1);
 }

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FR.hpp                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 20:50:07 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/10 20:50:08 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/06/17 18:08:25 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/06/17 19:09:57 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef FR_HPP
+#define FR_HPP
 
-int main()
+# include <iostream>
+# include <fstream>
+# include <string>
+# include <stdbool.h>
+
+class FR
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.set_type("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.set_weapon(club);
-		jim.attack();
-		club.set_type("some other type of club");
-		jim.attack();
-	}
-	return 0;
-}
+private:
+    std::string infile;
+    std::string outfile;
+
+public:
+    FR( std::string filename);
+    ~FR();
+    bool    find_and_replace(std::string find, std::string replace);
+};
+#endif
