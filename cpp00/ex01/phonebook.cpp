@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:09:02 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/02 02:01:09 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/21 22:38:41 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@ bool	set_contact(Contact *contact)
 	std::string word[5];
 	std::cout << "\033[1;35mEnter First_name\033[0;37m" << std::endl;
 	std::getline(std::cin, word[0]); if(!word[0].compare("")){empty = true;}
+	word[0] = trim_and_replace_tabs(word[0]);
 	std::cout << "\033[1;35mEnter Last_name\033[0;37m" << std::endl;
 	std::getline(std::cin, word[1]); if(!word[1].compare("")){empty = true;}
+	word[1] = trim_and_replace_tabs(word[1]);
 	std::cout << "\033[1;35mEnter Nickname\033[0;37m" << std::endl;
 	std::getline(std::cin, word[2]); if(!word[2].compare("")){empty = true;}
+	word[2] = trim_and_replace_tabs(word[2]);
 	std::cout << "\033[1;35mEnter Phone_number\033[0;37m" << std::endl;
-	std::getline(std::cin, word[3]); if(!word[3].compare("")){empty = true;}
+	std::getline(std::cin, word[3]); if(!word[3].compare("") || !is_all_digits(word[3])){empty = true;}
+	word[3] = trim_and_replace_for_numb(word[3]);
 	std::cout << "\033[1;35mEnter Darkest_secret\033[0;37m" << std::endl;
 	std::getline(std::cin, word[4]); if(!word[4].compare("")){empty = true;}
+	word[4] = trim_and_replace_tabs(word[4]);
 	if (empty)
 		return (false);
 	contact->set_first_name(word[0]);
@@ -67,13 +72,12 @@ void	select_it(Phonebook phonebook)
 	std::cout << "\033[1;35mSelect by Index :\033[0;37m" << std::endl;
 	std::getline(std::cin, line);
 	if (is_all_digits(line))
-		index = std::stoi(line);
+		index = std::atoi(line.c_str());
 	else
 	{
 		std::cout << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
 		return;
 	}
-	std::cout << phonebook.ix << std::endl;
 	if (!phonebook.empty && index >= 0 && index <= phonebook.count)
 	{
 		std::cout << "First_name :" << phonebook.contact[index].get_first_name() << std::endl;
@@ -101,6 +105,12 @@ int	main()
 	while(1)
 	{
 		std::getline(std::cin, line);
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+			continue;
+		}
 		if (!line.compare("ADD"))
 		{
 			if (set_contact(&(phonebook.contact[phonebook.ix])))

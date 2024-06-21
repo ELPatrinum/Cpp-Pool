@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:43:44 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/01 13:46:55 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/21 22:23:42 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,56 @@ void	print_bot()
 			  << "----------|" << std::endl;
 }
 
-bool	is_all_digits(const std::string& str)
+bool is_all_digits(const std::string &str)
 {
-    return (!str.empty() && std::all_of(str.begin(), str.end(), ::isdigit));
+    if (str.empty())
+        return (false);
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+	{
+        if (!::isdigit(*it) && !::isspace(*it) && *it != '+')
+            return (false); 
+    }
+    return (true);
+}
+
+std::string trim_and_replace_for_numb(const std::string &line)
+{
+    size_t start = 0;
+    size_t end = line.length();
+
+    while (start < end && (std::isspace(line[start]) || line[start] == '\t'))
+        ++start;
+    while (end > start && (std::isspace(line[end - 1]) || line[end - 1] == '\t'))
+        --end;
+    std::string result;
+    for (size_t i = start; i < end; ++i)
+	{
+        if (line[i] == '\t' || line[i] == ' ')
+            continue;
+        else
+            result += line[i];
+    }
+
+    return result;
+}
+
+std::string trim_and_replace_tabs(const std::string &line)
+{
+    size_t start = 0;
+    size_t end = line.length();
+
+    while (start < end && (std::isspace(line[start]) || line[start] == '\t'))
+        ++start;
+    while (end > start && (std::isspace(line[end - 1]) || line[end - 1] == '\t'))
+        --end;
+    std::string result;
+    for (size_t i = start; i < end; ++i)
+	{
+        if (line[i] == '\t')
+            result += ' ';
+        else
+            result += line[i];
+    }
+
+    return result;
 }

@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:23:18 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/01 13:55:37 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/21 22:23:49 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <cctype>
+# include <limits>
 # include <iomanip>
 
 class Contact
@@ -48,8 +51,10 @@ public :
 	bool	empty;
 };
 
-void	print_top(void);
-void	print_bot();
-bool	is_all_digits(const std::string& str);
+void		print_top(void);
+void		print_bot();
+bool		is_all_digits(const std::string &str);
+std::string	trim_and_replace_tabs(const std::string &line);
+std::string trim_and_replace_for_numb(const std::string &line);
 
 #endif
