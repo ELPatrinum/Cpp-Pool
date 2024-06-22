@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:09:02 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/22 11:09:10 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/22 18:49:09 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	select_it(Phonebook phonebook)
 		index = std::atoi(line.c_str());
 	else
 	{
-		std::cout << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
+		std::cerr << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
 		return;
 	}
 	if (!phonebook.empty && index >= 0 && index <= phonebook.count)
@@ -87,7 +87,7 @@ void	select_it(Phonebook phonebook)
 		std::cout << "Darkest secret :" << phonebook.contact[index].get_darkest_secret() << std::endl;
 	}
 	else
-		std::cout << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
+		std::cerr << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
 	return;
 }
 
@@ -106,9 +106,8 @@ int	main()
 		std::cout << "=>"; std::getline(std::cin, line);
 		if (std::cin.eof())
 		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max());
-			continue;
+			std::cerr << "\033[38;5;214mEOF received. Exiting...\033[0;37m" << std::endl;
+			break;
 		}
 		if (!line.compare("ADD"))
 		{
@@ -123,7 +122,7 @@ int	main()
 					phonebook.ix = 0;	
 			}
 			else
-				std::cout << "\033[1;31mERROR! INVALID FEILD" << std::endl << "make sure there's no empty feilds and the phone number is valid\033[0;37m" << std::endl;
+				std::cerr << "\033[1;31mERROR! INVALID FEILD" << std::endl << "make sure there's no empty feilds and the phone number is valid\033[0;37m" << std::endl;
 		}
 		else if (!line.compare("SEARCH"))
 		{

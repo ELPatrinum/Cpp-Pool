@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:23:18 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/21 22:23:49 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/22 18:47:49 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <cstdlib>
 # include <cctype>
+# include <cstdio>
 # include <limits>
 # include <iomanip>
 
