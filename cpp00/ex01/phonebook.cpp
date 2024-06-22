@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:09:02 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/22 00:58:42 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/06/22 11:09:10 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ bool	set_contact(Contact *contact)
 	
 	std::string word[5];
 	std::cout << "\033[1;35mEnter First_name\033[0;37m" << std::endl;
-	std::getline(std::cin, word[0]);
+	std::cout << "=>"; std::getline(std::cin, word[0]);
 	word[0] = trim_and_replace_tabs(word[0]); if(!word[0].compare("")){empty = true;}
 	std::cout << "\033[1;35mEnter Last_name\033[0;37m" << std::endl;
-	std::getline(std::cin, word[1]);
+	std::cout << "=>"; std::getline(std::cin, word[1]);
 	word[1] = trim_and_replace_tabs(word[1]); if(!word[1].compare("")){empty = true;}
 	std::cout << "\033[1;35mEnter Nickname\033[0;37m" << std::endl;
-	std::getline(std::cin, word[2]);
+	std::cout << "=>"; std::getline(std::cin, word[2]);
 	word[2] = trim_and_replace_tabs(word[2]); if(!word[2].compare("")){empty = true;}
 	std::cout << "\033[1;35mEnter Phone_number\033[0;37m" << std::endl;
-	std::getline(std::cin, word[3]);
+	std::cout << "=>"; std::getline(std::cin, word[3]);
 	word[3] = trim_and_replace_for_numb(word[3]);  if(!word[3].compare("") || !is_all_digits(word[3])){empty = true;}
 	std::cout << "\033[1;35mEnter Darkest_secret\033[0;37m" << std::endl;
-	std::getline(std::cin, word[4]);
+	std::cout << "=>"; std::getline(std::cin, word[4]);
 	word[4] = trim_and_replace_tabs(word[4]);  if(!word[4].compare("")){empty = true;}
 	if (empty)
 		return (false);
@@ -95,7 +95,6 @@ void	select_it(Phonebook phonebook)
 int	main()
 {
 	Phonebook phonebook;
-
 	phonebook.ix = 0;
 	phonebook.count = 0;
 	phonebook.empty = true;
@@ -104,7 +103,7 @@ int	main()
 	std::cout << "ADD, SEARH, EXIT\033[0;37m" << std::endl;
 	while(1)
 	{
-		std::getline(std::cin, line);
+		std::cout << "=>"; std::getline(std::cin, line);
 		if (std::cin.eof())
 		{
 			std::cin.clear();
