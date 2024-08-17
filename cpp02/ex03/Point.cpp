@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 06:07:16 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/07/24 11:25:41 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/15 13:37:53 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,40 +39,6 @@ Fixed Point::getY() const
 {
     return y;
 }
-
-// bool bsp(Point const a, Point const b, Point const c, Point const point)
-// {
-//     Fixed const zero(0);
-
-
-//     Fixed const v0_x = c.getX() - a.getX();
-//     Fixed const v0_y = c.getY() - a.getY();
-//     Fixed const v1_x = b.getX() - a.getX();
-//     Fixed const v1_y = b.getY() - a.getY();
-//     Fixed const v2_x = point.getX() - a.getX();
-//     Fixed const v2_y = point.getY() - a.getY();
-//     Fixed const dot00 = v0_x * v0_x + v0_y * v0_y;
-//     Fixed const dot01 = v0_x * v1_x + v0_y * v1_y;
-//     Fixed const dot02 = v0_x * v2_x + v0_y * v2_y;
-//     Fixed const dot11 = v1_x * v1_x + v1_y * v1_y;
-//     Fixed const dot12 = v1_x * v2_x + v1_y * v2_y;
-//     Fixed const invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
-//     Fixed const u = (dot11 * dot02 - dot01 * dot12) * invDenom;
-//     Fixed const v = (dot00 * dot12 - dot01 * dot02) * invDenom;
-//     return ((u > zero) && (v > zero) && (u + v < Fixed(1)));
-// }
-
-//==============================================================================================================================
-
-// The sign of areas technique 
-// is a method involves calculating the signed areas of triangles 
-// formed by the point in question and the vertices of the original triangle.
-
-// Given a triangle with vertices a(x1,y1), b(x2,y2), and c(x3,y3), 
-// and a point point(px,py), the signed area of a triangle 
-// formed by any three points (x1,y1), (x2,y2), and (px,py) 
-// can be computed as:
-// Area = 1/2 [(x1⋅(y2−py)+x2⋅(py−y1)+px⋅(y1−y2))]
 
 Fixed abs(Fixed x)
 {

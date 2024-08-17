@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 12:30:19 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/20 00:53:43 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/15 13:34:28 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,33 @@ void    Harl::Error( void )
 
 void    Harl::Complain( std:: string level )
 {
-    t_func  funcs[] = { &Harl::Debug, &Harl::Info, &Harl::Warning, &Harl::Error };
-    std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR"};
+    Ptrs ptrs[] = {&Harl::Debug, &Harl::Info, &Harl::Warning, &Harl::Error};
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    
     int i = 0;
-    while (i < 4)
+    while (i < Limit)
     {
-        if (!levels[i].compare(level))
-            break;
-        i++ ;
+        if (level == levels[i])
+            break ;
+        i++;
     }
-    if (i >= 4)
-	{
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		return;
-	}
-	while (i < 4)
-	{
-		std::cout << "[ " << levels[i] << " ]" << std::endl;
-    	(this->*funcs[i])();
-		std::cout << std::endl;
-		i++;
-	}
+
+    switch (i)
+    {
+        case DEBUG:
+            std::cout << "[ " << levels[0] << " ]\n";
+            (this->*ptrs[DEBUG])();
+        case INFO:
+            std::cout << "[ " << levels[1] << " ]\n";
+            (this->*ptrs[INFO])();
+        case WARNING:
+            std::cout << "[ " << levels[2] << " ]\n";
+            (this->*ptrs[WARNING])();
+        case ERROR:
+            std::cout << "[ " << levels[3] << " ]\n";
+            (this->*ptrs[ERROR])();
+            break;
+        default:
+            std::cout <<"[ Probably complaining about insignificant problems ]\n";
+    }
 }
