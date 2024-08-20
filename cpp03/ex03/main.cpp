@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:47:52 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/17 11:45:36 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/20 10:22:24 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main ()
 {
-	ClapTrap kayle;
+	ClapTrap Mundo;
 	ClapTrap nasus("Nasus");
 
 	nasus.attack("Vayne");
@@ -25,8 +25,8 @@ int main ()
 	nasus.attack("Caitlyne");
 	nasus.beRepaired(10);
 	nasus.attack("Jax");
-	kayle = nasus;
-	kayle.attack("Caitlyne");
+	Mundo = nasus;
+	Mundo.attack("Caitlyne");
 	
 	ScavTrap scarner;
 	ScavTrap lulu("Lulu");
