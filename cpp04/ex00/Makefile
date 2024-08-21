@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/03 23:19:26 by muel-bak          #+#    #+#              #
-#    Updated: 2024/08/20 10:57:07 by muel-bak         ###   ########.fr        #
+#    Created: 2024/08/20 10:55:29 by muel-bak          #+#    #+#              #
+#    Updated: 2024/08/20 13:55:08 by muel-bak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C := c++
 FLAGS := -std=c++98 -Wall -Wextra -Werror
-SRC := main.cpp 
-HEADER_FILE := 
+SRC := main.cpp Animal.cpp Cat.cpp Dog.cpp
+HEADER_FILE := Animal.hpp Cat.hpp Dog.hpp
 OBJS := $(SRC:%.cpp=%.o)
-NAME := DiamondTrap
+NAME := Polymorphism
 
 all: $(NAME)
 
@@ -35,3 +35,4 @@ fclean: clean
 	@echo "\033[1;32mThe object files and the program have been removed\033[0;37m"
 
 re: fclean all
+
