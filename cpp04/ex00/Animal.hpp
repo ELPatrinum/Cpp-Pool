@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:57:21 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/20 14:02:23 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:20:02 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ class Animal
 		std::string type;
 	public:
 		Animal();
-		~Animal();
-		std::string getType();
-		virtual void makeSound();
+		Animal(std::string type);
+		virtual ~Animal();
+		Animal(const Animal &other);
+		Animal &operator=(const Animal &other);
+		std::string getType() const;
+		virtual void makeSound() const;
 };
 #endif

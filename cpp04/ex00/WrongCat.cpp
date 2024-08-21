@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 11:11:49 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/21 12:47:55 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/08/21 12:31:34 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/08/21 12:37:19 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog(): Animal("Dog")
+WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
-	std::cout << "Dog Created" << std::endl;
+	std::cout << "WrongCat created" << std::endl;
 }
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog Destroyed" << std::endl;
+	std::cout << "WrongCat Destroyed" << std::endl;
 }
-Dog::Dog(const Dog& other): Animal(other)
+WrongCat::WrongCat(const WrongCat& other): WrongAnimal(other)
 {
-	std::cout << "Dog has been copied" << std::endl;
+	std::cout << "WrongCat Copied" << std::endl;
 }
-Dog &Dog::operator=(const Dog &other)
+WrongCat& WrongCat::operator=(const WrongCat& other)
 {
 	if (this != &other)
 	{
-		type = other.type;
+		WrongAnimal::operator=(other);
 	}
 	return (*this);
 }
-void Dog::makeSound() const
+
+void WrongCat::makeSound() const
 {
-	std::cout << "Bark!!" << std::endl;
+	std::cout << "meow!" << std::endl;
 }

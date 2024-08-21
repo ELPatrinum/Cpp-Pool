@@ -6,14 +6,14 @@
 #    By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/20 10:55:29 by muel-bak          #+#    #+#              #
-#    Updated: 2024/08/20 13:55:08 by muel-bak         ###   ########.fr        #
+#    Updated: 2024/08/21 12:38:05 by muel-bak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C := c++
 FLAGS := -std=c++98 -Wall -Wextra -Werror
-SRC := main.cpp Animal.cpp Cat.cpp Dog.cpp
-HEADER_FILE := Animal.hpp Cat.hpp Dog.hpp
+SRC := main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+HEADER_FILE := Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 OBJS := $(SRC:%.cpp=%.o)
 NAME := Polymorphism
 
@@ -35,4 +35,3 @@ fclean: clean
 	@echo "\033[1;32mThe object files and the program have been removed\033[0;37m"
 
 re: fclean all
-
