@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:25:34 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/21 12:50:30 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:22:49 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 
 std::string WrongAnimal::getType() const
 {
-	return type;
+	return (type);
 }
 
 void WrongAnimal::makeSound() const

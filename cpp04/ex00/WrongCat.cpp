@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:31:34 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/21 12:37:19 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:14:09 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 
 void WrongCat::makeSound() const
 {
-	std::cout << "meow!" << std::endl;
+	std::cout << "Wrong Meow!" << std::endl;
 }
