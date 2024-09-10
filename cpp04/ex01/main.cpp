@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:53:03 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/26 15:32:55 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/09/09 11:11:19 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ void cat_test()
 	Cat *c = new Cat();
 	Cat *b = new Cat();
 	c->makeSound();
-
-	for (int i = 0; i < 100; i++)
+	int i = 0;
+	while ( i < 100)
+	{
 		c->add_idea("Food Food");
+		i++;
+	}
 	std::cout << c->get_idea(1) << std::endl;
 	b = c;
 	std::cout << b->get_idea(55)<< std::endl;
@@ -37,9 +40,12 @@ void dog_test()
 	Dog c;
 	Dog b;
 	c.makeSound();
-
-	for (int i = 0; i < 100; i++)
+	int i = 0;
+	while ( i < 100)
+	{
 		c.add_idea("Loyalty");
+		i++;
+	}
 	std::cout << c.get_idea(1) << std::endl;
 	b = c;
 	std::cout << b.get_idea(55)<< std::endl;
@@ -53,8 +59,8 @@ void brain_test()
 	Brain brain_a;
 	Brain brain_b;
 
-	brain_a.add_idea("idea 1");
-	brain_a.add_idea("idea 2");
+	brain_a.add_idea("a smart idea");
+	brain_a.add_idea("a dumb idea");
 
 	std::cout << brain_a.get_idea(0) << std::endl;
 
@@ -71,29 +77,30 @@ int main()
 	const Animal* i = new Cat();
 	delete j;
 	delete i;
-
 	brain_test();
 	cat_test();
 	dog_test();
-
 	int animal_size = 20;
 	Animal *animals[animal_size];
 
-	for(int i = 0; i < animal_size; i++)
+	int ii = 0;
+	while( ii < animal_size)
 	{
-		if (i % 2)
-			animals[i] = new Dog();
+		if (ii % 2)
+			animals[ii] = new Dog();
 		else
-			animals[i] = new Cat();
+			animals[ii] = new Cat();
+		ii++;
 	}
 	animals[0]->makeSound();
-
 	((Dog *)animals[1])->add_idea("Friendship");
 	((Dog *)animals[1])->add_idea("Loyalty");
-
 	std::cout << ((Dog *)animals[1])->get_idea(0) << std::endl;
-	
-	for (int i = 0; i < animal_size; i++)
-		delete animals[i];
+	ii = 0;
+	while (ii < animal_size)
+	{
+		delete animals[ii];
+		ii++;
+	}
 	return (0);
 }
