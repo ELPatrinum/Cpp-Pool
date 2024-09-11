@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FR_tools.cpp                                       :+:      :+:    :+:   */
+/*   FrTools.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:38:46 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/17 19:10:53 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/09/11 20:43:53 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FR.hpp"
+#include "Fr.hpp"
 
-FR::FR(std::string filename) : infile(filename)
+Fr::Fr(std::string filename) : infile(filename)
 {
     outfile = infile + ".replace";
 }
 
-FR::~FR ( void )
+Fr::~Fr ( void )
 {
 }

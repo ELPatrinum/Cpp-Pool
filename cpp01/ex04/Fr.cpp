@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FR.cpp                                             :+:      :+:    :+:   */
+/*   Fr.cpp                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 18:29:02 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/22 11:38:55 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/09/11 20:44:10 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FR.hpp"
+#include "Fr.hpp"
 
 
-bool FR::find_and_replace(std::string find, std::string replace)
+bool Fr::find_and_replace(std::string find, std::string replace)
 {
     std::string content;
     size_t position;
@@ -33,7 +33,7 @@ bool FR::find_and_replace(std::string find, std::string replace)
     }
     if (!std::getline(inputfile, content, '\0'))
     {
-        std::cerr << "FR : Empty File!." << std::endl;
+        std::cerr << "Fr : Empty File!." << std::endl;
         inputfile.close();
         outputfile.close();
         return (false);

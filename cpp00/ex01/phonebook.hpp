@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:23:18 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/22 18:47:49 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/09/11 20:34:24 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void		print_bot();
 bool		is_all_digits(const std::string &str);
 std::string	trim_and_replace_tabs(const std::string &line);
 std::string trim_and_replace_for_numb(const std::string &line);
+std::string remove_non_printable(const std::string& input);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 05:09:02 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/22 18:49:09 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/09/11 20:36:49 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ bool	set_contact(Contact *contact)
 	word[4] = trim_and_replace_tabs(word[4]);  if(!word[4].compare("")){empty = true;}
 	if (empty)
 		return (false);
-	contact->set_first_name(word[0]);
-	contact->set_last_name(word[1]);
-	contact->set_nickname(word[2]);
-	contact->set_phone_number(word[3]);
-	contact->set_darkest_secret(word[4]);
+	contact->set_first_name(remove_non_printable(word[0]));
+	contact->set_last_name(remove_non_printable(word[1]));
+	contact->set_nickname(remove_non_printable(word[2]));
+	contact->set_phone_number(remove_non_printable(word[3]));
+	contact->set_darkest_secret(remove_non_printable(word[4]));
 	return (true);
 }
 
@@ -78,7 +78,7 @@ void	select_it(Phonebook phonebook)
 		std::cerr << "\033[1;31mNo such an Index :\033[0;37m" <<  std::endl;
 		return;
 	}
-	if (!phonebook.empty && index >= 0 && index <= phonebook.count)
+	if (!phonebook.empty && index >= 0 && index < phonebook.count)
 	{
 		std::cout << "First_name :" << phonebook.contact[index].get_first_name() << std::endl;
 		std::cout << "Last_name :" << phonebook.contact[index].get_last_name() << std::endl;

@@ -6,16 +6,16 @@
 #    By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 20:49:32 by muel-bak          #+#    #+#              #
-#    Updated: 2024/06/17 19:08:41 by muel-bak         ###   ########.fr        #
+#    Updated: 2024/09/11 20:49:21 by muel-bak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C := c++
 FLAGS := -std=c++98 -Wall -Wextra -Werror
-SRC := main.cpp FR.cpp FR_tools.cpp
-HEADER_FILE := FR.hpp
+SRC := main.cpp Fr.cpp FrTools.cpp
+HEADER_FILE := Fr.hpp
 OBJS := $(SRC:%.cpp=%.o)
-NAME := FR
+NAME := Fr
 
 all: $(NAME)
 

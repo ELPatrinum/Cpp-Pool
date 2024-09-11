@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:43:44 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/06/21 22:23:42 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/09/11 20:39:00 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,19 @@ std::string trim_and_replace_for_numb(const std::string &line)
             result += line[i];
     }
 
+    return result;
+}
+
+
+std::string remove_non_printable(const std::string& input)
+{
+    std::string result;
+    for (std::string::size_type i = 0; i < input.size(); ++i)
+    {
+        char ch = input[i];
+        if (std::isprint(static_cast<unsigned char>(ch)))
+            result += ch;
+    }
     return result;
 }
 
