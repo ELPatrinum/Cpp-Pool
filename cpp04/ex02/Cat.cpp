@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:31:32 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/02 16:43:08 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:29:21 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ Cat::Cat(): Animal("Cat")
 	{
 		brain = new Brain();
 	}
-	catch (const std::bad_alloc &e)
+	catch (const std::bad_alloc& e)
 	{
 		brain = NULL;
 		std::cerr << "new: " << e.what() << std::endl;
 	}
 	std::cout << "Cat Created" << std::endl;
 }
-Cat::Cat(const Cat &other): Animal(other)
+Cat::Cat(const Cat& other): Animal(other)
 {
 	if (other.brain)
 	{
@@ -34,7 +34,7 @@ Cat::Cat(const Cat &other): Animal(other)
 			brain = new Brain();
 			*brain = *(other.brain);
 		}
-		catch (const std::bad_alloc &e)
+		catch (const std::bad_alloc& e)
 		{
 			brain = NULL;
 			std::cerr << "new: " << e.what() << std::endl;
@@ -62,7 +62,7 @@ Cat &Cat::operator=(const Cat &other)
 				brain = new Brain();
 				*brain = *(other.brain);
 			}
-			catch (const std::bad_alloc &e)
+			catch (const std::bad_alloc& e)
 			{
 				brain = NULL;
 				std::cerr << "new: " << e.what() << std::endl;
@@ -77,7 +77,7 @@ void Cat::makeSound() const
 {
 	std::cout << "Meow!!" << std::endl;
 }
-void Cat::add_idea(const std::string &idea)
+void Cat::add_idea(const std::string& idea)
 {
 	brain->add_idea(idea);
 }

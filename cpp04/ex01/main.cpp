@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 13:53:03 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/09/09 11:11:19 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:58:11 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,37 @@
 
 void cat_test()
 {
-	Cat *c = new Cat();
-	Cat *b = new Cat();
-	c->makeSound();
-	int i = 0;
-	while ( i < 100)
-	{
-		c->add_idea("Food Food");
-		i++;
-	}
-	std::cout << c->get_idea(1) << std::endl;
+	Cat c;
+	Cat b;
+	c.makeSound();
+	for (int i = 0; i < 100; i++)
+		c.add_idea("only cares about food");
+	std::cout << c.get_idea(1) << std::endl;
 	b = c;
-	std::cout << b->get_idea(55)<< std::endl;
+	std::cout << b.get_idea(55)<< std::endl;
+	Cat d(c);
+	std::cout << b.get_idea(120)<< std::endl;
 
-	Cat d(*c);
-	std::cout << b->get_idea(120)<< std::endl;
-
-	delete c;
-	delete b;
 }
 
 void dog_test()
 {
-	Dog c;
-	Dog b;
-	c.makeSound();
-	int i = 0;
-	while ( i < 100)
+	Dog *x = new Dog();
+	Dog *y = new Dog();
+	x->makeSound();
+	for (int i = 0; i < 100; i++)
 	{
-		c.add_idea("Loyalty");
-		i++;
+		x->add_idea("he is my friend");
+		x->add_idea("im just a loyal pet");
 	}
-	std::cout << c.get_idea(1) << std::endl;
-	b = c;
-	std::cout << b.get_idea(55)<< std::endl;
-
-	Dog d(c);
-	std::cout << b.get_idea(120)<< std::endl;
+	std::cout << x->get_idea(5) << std::endl;
+	*y = *x;
+	std::cout << y->get_idea(50)<< std::endl;
+	Dog *z = new Dog(*y);
+	std::cout << z->get_idea(2)<< std::endl;
+	delete x;
+	delete y;
+	delete z;
 }
 
 void brain_test()
@@ -59,48 +53,52 @@ void brain_test()
 	Brain brain_a;
 	Brain brain_b;
 
-	brain_a.add_idea("a smart idea");
-	brain_a.add_idea("a dumb idea");
+	brain_a.add_idea("idea 1");
+	brain_a.add_idea("idea 2");
 
 	std::cout << brain_a.get_idea(0) << std::endl;
-
 	brain_b = brain_a;
 	std::cout << brain_b.get_idea(1) << std::endl;
-	
+
 	Brain brain_c(brain_b);
 	std::cout << brain_c.get_idea(1) << std::endl;
+}
+void f()
+{
+	system("leaks Brain");
 }
 
 int main()
 {
+	// atexit(f);
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	delete j;
 	delete i;
+
 	brain_test();
 	cat_test();
 	dog_test();
-	int animal_size = 20;
+
+	int animal_size = 10;
 	Animal *animals[animal_size];
 
-	int ii = 0;
-	while( ii < animal_size)
+	for(int i = 0; i < animal_size; i++)
 	{
-		if (ii % 2)
-			animals[ii] = new Dog();
+		if (i % 2)
+			animals[i] = new Dog();
 		else
-			animals[ii] = new Cat();
-		ii++;
+			animals[i] = new Cat();
 	}
+
 	animals[0]->makeSound();
-	((Dog *)animals[1])->add_idea("Friendship");
-	((Dog *)animals[1])->add_idea("Loyalty");
+
+	((Dog *)animals[1])->add_idea("Let's play");
+	((Dog *)animals[1])->add_idea("I wanna eat");
+
 	std::cout << ((Dog *)animals[1])->get_idea(0) << std::endl;
-	ii = 0;
-	while (ii < animal_size)
-	{
-		delete animals[ii];
-		ii++;
-	}
-	return (0);
+	
+	for (int i = 0; i < animal_size; i++)
+		delete animals[i];
+	return 0;
 }

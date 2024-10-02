@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:18:39 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/02 16:43:47 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:16:27 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Brain &Brain::operator=(const Brain &other)
 	return (*this);
 }
 
-void Brain::add_idea(const std::string &idea)
+void Brain::add_idea(const std::string& idea)
 {
 	static unsigned int i;
 

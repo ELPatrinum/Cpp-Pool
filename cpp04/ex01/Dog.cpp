@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:11:49 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/08/26 15:29:07 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:37:58 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ Dog &Dog::operator=(const Dog &other)
 				brain = new Brain();
 				*brain = *(other.brain);
 			}
-			catch (const std::bad_alloc& e)
+			catch (const std::bad_alloc &e)
 			{
 				brain = NULL;
 				std::cerr << "new: " << e.what() << std::endl;
@@ -78,7 +78,7 @@ void Dog::makeSound() const
 	std::cout << "Bark!!" << std::endl;
 }
 
-void Dog::add_idea(const std::string& idea)
+void Dog::add_idea(const std::string &idea)
 {
 	brain->add_idea(idea);
 }

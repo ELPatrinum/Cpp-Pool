@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 11:31:32 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/02 16:43:08 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/08/20 11:11:49 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/08/26 15:29:07 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat(): Animal("Cat")
+Dog::Dog(): Animal("Dog")
 {
 	try
 	{
 		brain = new Brain();
 	}
-	catch (const std::bad_alloc &e)
+	catch (const std::bad_alloc& e)
 	{
 		brain = NULL;
 		std::cerr << "new: " << e.what() << std::endl;
 	}
 	std::cout << "Cat Created" << std::endl;
 }
-Cat::Cat(const Cat &other): Animal(other)
+Dog::Dog(const Dog& other): Animal(other)
 {
 	if (other.brain)
 	{
@@ -34,7 +34,7 @@ Cat::Cat(const Cat &other): Animal(other)
 			brain = new Brain();
 			*brain = *(other.brain);
 		}
-		catch (const std::bad_alloc &e)
+		catch (const std::bad_alloc& e)
 		{
 			brain = NULL;
 			std::cerr << "new: " << e.what() << std::endl;
@@ -42,14 +42,14 @@ Cat::Cat(const Cat &other): Animal(other)
 	}
 	else
 		brain = NULL;
-	std::cout << "Cat has been copied" << std::endl;
+	std::cout << "Dog has been copied" << std::endl;
 }
-Cat::~Cat()
+Dog::~Dog()
 {
 	delete brain;
-	std::cout << "Cat Destroyed" << std::endl;
+	std::cout << "Dog Destroyed" << std::endl;
 }
-Cat &Cat::operator=(const Cat &other)
+Dog &Dog::operator=(const Dog &other)
 {
 	if (this != &other)
 	{
@@ -62,7 +62,7 @@ Cat &Cat::operator=(const Cat &other)
 				brain = new Brain();
 				*brain = *(other.brain);
 			}
-			catch (const std::bad_alloc &e)
+			catch (const std::bad_alloc& e)
 			{
 				brain = NULL;
 				std::cerr << "new: " << e.what() << std::endl;
@@ -73,17 +73,17 @@ Cat &Cat::operator=(const Cat &other)
 	}
 	return (*this);
 }
-void Cat::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << "Meow!!" << std::endl;
+	std::cout << "Bark!!" << std::endl;
 }
-void Cat::add_idea(const std::string &idea)
+
+void Dog::add_idea(const std::string& idea)
 {
 	brain->add_idea(idea);
 }
 
-std::string Cat::get_idea(const unsigned int i)
+std::string Dog::get_idea(const unsigned int i)
 {
 	return (brain->get_idea(i));
 }
-

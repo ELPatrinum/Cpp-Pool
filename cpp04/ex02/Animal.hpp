@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 15:18:46 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/02 16:44:01 by muel-bak         ###   ########.fr       */
+/*   Created: 2024/08/20 10:57:21 by muel-bak          #+#    #+#             */
+/*   Updated: 2024/10/02 12:30:37 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
 # include <iostream>
 
-class Brain
+class Animal
 {
-	private:
-		std::string ideas[100];
+	protected:
+		std::string type;
 	public:
-		Brain();
-		~Brain();
-		Brain(const Brain &other);
-		Brain &operator=(const Brain &other);
-
-		void add_idea(const std::string& idea);
-		std::string get_idea(const unsigned int i);
+		Animal();
+		Animal(std::string type);
+		virtual ~Animal();
+		Animal(const Animal &other);
+		Animal &operator=(const Animal &other);
+		std::string getType() const;
+		virtual void makeSound() const = 0;
 };
-
 #endif

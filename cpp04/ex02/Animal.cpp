@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:00:36 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/02 12:18:47 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:30:31 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,4 @@ Animal &Animal::operator=(const Animal &other)
 std::string Animal::getType() const
 {
 	return (this->type);
-}
-void Animal::makeSound() const
-{
-	std::cout << "Animal Sound!!" << std::endl;
 }
