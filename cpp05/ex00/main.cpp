@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:15:32 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/08 18:14:59 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/08 19:23:57 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ int main()
 			std::cout << "Lulu promoted! " << Lulu << std::endl;
 			Lulu.decGrade();
 			std::cout << "Lulu demoted! New state: " << Lulu << std::endl;
+			Bureaucrat Nami(Lulu);
+			std::cout << Nami << std::endl;
+			Bureaucrat Swain = Nami;
+			std::cout << Swain << std::endl;
         } catch (const std::exception& e) {
             std::cout << "Cannot create Lulu!" << std::endl;
             std::cout << "Exception: " << e.what() << std::endl;

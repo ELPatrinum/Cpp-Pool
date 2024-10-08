@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:16:42 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/08 18:08:37 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/08 19:19:34 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 }
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &fixed)
 {
-	out << "Bureaucrat Name: " << fixed.getName() << ", Grade: " << fixed.getGrade();
+	out << fixed.getName() << ", bureaucrat grade " << fixed.getGrade();
     return (out);
 }
 
