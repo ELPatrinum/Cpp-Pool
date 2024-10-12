@@ -12,7 +12,7 @@
 
 #include "AForm.hpp"
 
-AForm::GradeTooHighException::GradeTooHighException(void)
+AForm::GradeTooHighException::GradeTooHighException()
 {
 	this->msg = "The grade is higher than the maximum!";
 }
@@ -23,7 +23,7 @@ const char*	AForm::GradeTooHighException::what() const throw()
 {
 	return (this->msg);
 }
-AForm::GradeTooLowException::GradeTooLowException(void)
+AForm::GradeTooLowException::GradeTooLowException()
 {
 	this->msg = "The grade is lower than the minimum!";
 }
@@ -62,21 +62,21 @@ AForm&	AForm::operator=(const AForm& other)
 	this->fsigned = other.fsigned;
 	return (*this);
 }
-const std::string&	AForm::getName(void) const
+const std::string&	AForm::getName() const
 {
 	return (this->name);
 }
-int	AForm::getGradeToSign(void) const
+int	AForm::getGradeToSign() const
 {
 	return (this->gradeToSign);
 }
 
-int AForm::getGradeToExecute(void) const
+int AForm::getGradeToExecute() const
 {
 	return (this->gradeToExecute);
 }
 
-bool	AForm::isSigned(void) const
+bool	AForm::isSigned() const
 {
 	return (this->fsigned);
 }
@@ -104,7 +104,7 @@ void AForm::checkExecutability(const Bureaucrat &executor) const
 	if (!this->fsigned)
 		throw InvalidFormException("Not signed forms cannot be executed!");
 }
-AForm::InvalidFormException::InvalidFormException(void)
+AForm::InvalidFormException::InvalidFormException()
 {
 	this->msg = "The form cannot be executed!";
 }

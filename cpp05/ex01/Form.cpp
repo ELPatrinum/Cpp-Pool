@@ -6,13 +6,13 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:57:43 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/08 22:03:36 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:22:38 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::GradeTooHighException::GradeTooHighException(void)
+Form::GradeTooHighException::GradeTooHighException()
 {
 	this->msg = "The grade is higher than the maximum!";
 }
@@ -23,7 +23,7 @@ const char	*Form::GradeTooHighException::what() const throw()
 {
 	return (this->msg);
 }
-Form::GradeTooLowException::GradeTooLowException(void)
+Form::GradeTooLowException::GradeTooLowException()
 {
 	this->msg = "The grade is lower than the minimum!";
 }
@@ -57,7 +57,7 @@ Form::~Form()
 {
 	std::cout << *this << " is Destroyed!" << std::endl;
 }
-Form&	Form::operator=(const Form& other)
+Form&	Form::operator=(const Form &other)
 {
 	this->fsigned = other.fsigned;
 	return (*this);
@@ -88,7 +88,7 @@ void	Form::beSigned(const Bureaucrat &b)
 	this->fsigned = true;
 }
 
-std::ostream&	operator<<(std::ostream& out, Form& form)
+std::ostream&	operator<<(std::ostream &out, Form &form)
 {
 	out << "Form: " << form.getName() << " Signed: " << (form.isSigned() ? "true" : "false");
 	out << " GradeToSign: " << form.getGradeToSign();

@@ -32,7 +32,7 @@ public:
 		private:
 			const char	*msg;
 		public:
-			GradeTooHighException(void);
+			GradeTooHighException();
 			GradeTooHighException(const char *msg);
 			const char	*what() const throw();
 	};
@@ -41,7 +41,7 @@ public:
 		private:
 			const char	*msg;
 		public:
-			GradeTooLowException(void);
+			GradeTooLowException();
 			GradeTooLowException(const char *msg);
 			const char      *what() const throw();
 	};
@@ -50,24 +50,24 @@ public:
 		private:
 			const char	*msg;
 		public:
-			InvalidFormException(void);
+			InvalidFormException();
 			InvalidFormException(const char *msg);
 			const char* what() const throw();
 	};
 	AForm();
 	AForm(const std::string& name, int gradeToSign, int gradeToExecutre);
 	AForm(const AForm& other);
-	virtual ~AForm(void);
+	virtual ~AForm();
 	AForm&				operator=(const AForm& other);
-	const std::string&	getName(void) const;
-	int					getGradeToSign(void) const;
-	int					getGradeToExecute(void) const;
-	bool				isSigned(void) const;
+	const std::string&	getName() const;
+	int					getGradeToSign() const;
+	int					getGradeToExecute() const;
+	bool				isSigned() const;
 	void				beSigned(const Bureaucrat& b);
 	virtual void		execute(const Bureaucrat& executor) const = 0;
 protected:
-		void				checkExecutability(const Bureaucrat& executor) const;
+		void				checkExecutability(const Bureaucrat &executor) const;
 };
-std::ostream&	operator<<(std::ostream& out, AForm& Aform);
+std::ostream&	operator<<(std::ostream &out, AForm &Aform);
 
 #endif

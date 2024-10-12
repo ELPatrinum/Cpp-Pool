@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 02:42:03 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/12 12:24:49 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:13:59 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ const std::string&	RobotomyRequestForm::getTarget() const
 	return (this->target);
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	this->checkExecutability(executor);
 	std::cout << "Drilling noises!!" << std::endl;

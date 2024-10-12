@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 19:57:52 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/09 03:19:40 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:22:08 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 		private:
 			const char	*msg;
 		public:
-			GradeTooHighException(void);
+			GradeTooHighException();
 			GradeTooHighException(const char *msg);
 			const char	*what() const throw();
 	};
@@ -42,23 +42,23 @@ public:
 		private:
 			const char	*msg;
 		public:
-			GradeTooLowException(void);
+			GradeTooLowException();
 			GradeTooLowException(const char *msg);
-			const char      *what() const throw();
+			const char	*what() const throw();
 	};
 	Form();
-	Form(const std::string& name, int gradeToSign, int gradeToExecutre);
-	Form(const Form& other);
-	~Form(void);
+	Form(const std::string &name, int gradeToSign, int gradeToExecutre);
+	Form(const Form &other);
+	~Form();
 
-	Form&				operator=(const Form& other);
-	const std::string&	getName(void) const;
-	int					getGradeToSign(void) const;
-	int					getGradeToExecute(void) const;
-	bool				isSigned(void) const;
-	void				beSigned(const Bureaucrat& b);
+	Form&				operator=(const Form &other);
+	const std::string&	getName() const;
+	int					getGradeToSign() const;
+	int					getGradeToExecute() const;
+	bool				isSigned() const;
+	void				beSigned(const Bureaucrat &b);
 
 };
-std::ostream&	operator<<(std::ostream& out, Form& form);
+std::ostream&	operator<<(std::ostream &out, Form &form);
 
 #endif
