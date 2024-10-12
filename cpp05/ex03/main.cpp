@@ -6,21 +6,16 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:15:32 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/12 13:07:51 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:10:46 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 #include "AForm.hpp"
 
-void f()
-{
-	system("leaks Intern");
-}
 
 int main()
 {
-	atexit(f);
 	Intern	intern;
 	AForm	*f;
 	
@@ -41,4 +36,5 @@ int main()
 	
 	f = intern.makeForm("TRY", "Z");
 	delete (f);
+	return (0);
 }
