@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 16:15:32 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/08 19:23:57 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/08 19:42:37 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ int main()
         std::cout << "An unexpected exception occurred: " << e.what() << std::endl;
     }
 
-    return 0;
+    return (0);
 }
