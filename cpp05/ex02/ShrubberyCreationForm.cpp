@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 02:13:38 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/12 11:47:52 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:44:36 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,26 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 
 	this->checkExecutability(executor);
 	name = target + "_shrubbery";
-	file.open(name.c_str(), std::ofstream::out);
-
-    file << "        ccee88oo              " << std::endl;
-    file << "     C8O8O8Q8PoOb o8oo       " << std::endl;
-    file << "   dOB69QO8PdUOpugoO9bD      " << std::endl;
-    file << "  CgggbU8OU qOp qOdoUOdcb    " << std::endl;
-    file << "    6OuU  /p u gcoUodpP      " << std::endl;
-    file << "      \\\\//  /douUP          " << std::endl;
-    file << "        \\\\////               " << std::endl;
-    file << "         |||/\\                " << std::endl;
-    file << "         |||\\/                " << std::endl;
-    file << "         |||||                 " << std::endl;
-    file << "         |||||                 " << std::endl;
-    file << "         |||||                 " << std::endl;
-    file << "   .....//|||||\\\\....         " << std::endl;
-	file.close();
+	try
+	{
+		file.open(name.c_str(), std::ofstream::out);
+		file << "        ccee88oo              " << std::endl;
+		file << "     C8O8O8Q8PoOb o8oo       " << std::endl;
+		file << "   dOB69QO8PdUOpugoO9bD      " << std::endl;
+		file << "  CgggbU8OU qOp qOdoUOdcb    " << std::endl;
+		file << "    6OuU  /p u gcoUodpP      " << std::endl;
+		file << "      \\\\//  /douUP          " << std::endl;
+		file << "        \\\\////               " << std::endl;
+		file << "         |||/\\                " << std::endl;
+		file << "         |||\\/                " << std::endl;
+		file << "         |||||                 " << std::endl;
+		file << "         |||||                 " << std::endl;
+		file << "         |||||                 " << std::endl;
+		file << "   .....//|||||\\\\....         " << std::endl;
+		file.close();
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "error while opening a file :" << e.what() << std::endl;
+	}
 }

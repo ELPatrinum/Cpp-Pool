@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 02:42:03 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/12 13:13:59 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:35:04 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,18 @@ const std::string&	RobotomyRequestForm::getTarget() const
 	return (this->target);
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+
+
+void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	this->checkExecutability(executor);
 	std::cout << "Drilling noises!!" << std::endl;
-	static int seeded = 0;
-    if (seeded == 100) {
-        seeded = 0;
+	static bool seeded = false;
+    if (!seeded) {
+        std::srand(static_cast<unsigned int>(std::time(0)));
+        seeded = true;
     }
-    int randomValue = seeded % 2;
-	seeded++;
+    int randomValue = std::rand() % 2;
 	if (!randomValue)
 	{
 		std::cout << this->target;
@@ -54,23 +56,3 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	else
 		std::cout << "The robotomization on " << this->target << " failed!" << std::endl;
 }
-
-
-// void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
-// {
-// 	this->checkExecutability(executor);
-// 	std::cout << "Drilling noises!!" << std::endl;
-// 	static bool seeded = false;
-//     if (!seeded) {
-//         std::srand(static_cast<unsigned int>(std::time(0)));
-//         seeded = true;
-//     }
-//     int randomValue = std::rand() % 2;
-// 	if (!randomValue)
-// 	{
-// 		std::cout << this->target;
-// 		std::cout << " robotomized successfully!" << std::endl;
-// 	}
-// 	else
-// 		std::cout << "The robotomization on " << this->target << " failed!" << std::endl;
-// }
