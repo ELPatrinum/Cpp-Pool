@@ -66,6 +66,9 @@
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
 		"*.tcc": "cpp",
-		"compare": "cpp"
+		"compare": "cpp",
+		"__tree": "cpp",
+		"map": "cpp",
+		"filesystem": "cpp"
 	}
 }
