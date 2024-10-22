@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:15:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/22 00:26:05 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/22 09:13:13 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,8 @@ int RPN::mul(int a, int b)
 
 int RPN::div(int a, int b)
 {
-    if (b == 0)
-        throw std::invalid_argument("Division by zero");
-
+	if (b == 0)
+    	throw std::runtime_error("Division by zero");
     return (a / b);
 }
 std::string RPN::ft_itoa(int num)
@@ -100,9 +99,9 @@ void RPN::calculate(std::string &line)
 				throw std::runtime_error("Error");
 			if (_stack.size() > 1)
 			{
-				int a = atoi(_stack.top().c_str()); _stack.pop();
 				int b = atoi(_stack.top().c_str()); _stack.pop();
-				int result = (this->*f[get_op(element)])(b, a);
+				int a = atoi(_stack.top().c_str()); _stack.pop();
+				int result = (this->*f[get_op(element)])(a, b);
 				_stack.push(ft_itoa(result));
 			}
 		}
