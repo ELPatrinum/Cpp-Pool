@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:07:41 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/21 17:02:22 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:39:01 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
         this->data = other.data;
     }
 };
-BitcoinExchange::~BitcoinExchange(){};
+BitcoinExchange::~BitcoinExchange(void){};
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 {
     if (this != &other)
