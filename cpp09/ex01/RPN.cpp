@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:15:17 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/22 09:13:13 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:29:26 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,7 @@ void RPN::calculate(std::string &line)
 	while(c_element)
 	{
 		if (std::isdigit(element[0]))
-		{
 			_stack.push(element);
-		}
 		else
 		{
 			if (get_op(element) > 4)

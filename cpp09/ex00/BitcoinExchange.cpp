@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:07:41 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/21 17:39:01 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/26 15:48:09 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ void BitcoinExchange::check_find(std::string file)
 		{
 			if(!prekey || !preval)
 				throw std::runtime_error("Error: invalid line " + line);
-			std::string key(prekey);
+			std::string key(trimSpaces(prekey));
 			std::string valueStr(preval);
 			isValidKey(trimSpaces(key));
 			isValidValue(trimSpaces(valueStr));
@@ -187,7 +187,9 @@ void BitcoinExchange::check_find(std::string file)
 			while (it == data.end())
 			{
 				const std::string &nowDate = preDate;
-				preDate = findDate(nowDate);
+				it = data.find(preDate);
+				if(it == data.end())
+					preDate = findDate(nowDate);
 				it = data.find(preDate);
 			}
 		 	std::cout << key << " => " << valueStr  << " = " << it->second * atof(valueStr.c_str()) << std::endl;
