@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:30 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/26 13:35:48 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:17:38 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,21 @@ class PmergeMe
 {
 	std::vector<int> vc;
 	std::deque<int> dq;
+	template <typename T>
+	void	FGSsort(T& container, typename T::iterator left, typename T::iterator right);
+	template <typename T>
+	void	ft_merge(T& container, typename T::iterator left, typename T::iterator mid, typename T::iterator right);
+	template <typename T>
+	void	ft_add(const std::string& line, T& container);
+	template <typename T>
+	void	print_arr(T &arry, bool check);
 public:
 	PmergeMe(void);
 	PmergeMe(PmergeMe &other);
 	PmergeMe &operator=(PmergeMe &other);
 	~PmergeMe(void);
-	void launch(std::string line);
+	void launch(char **av, int ac);
+	std::string mergeStrings(char** strings, int count);
 };
 
 
