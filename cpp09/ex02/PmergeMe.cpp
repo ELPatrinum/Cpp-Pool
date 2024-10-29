@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:38 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/29 12:05:02 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:21:04 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,8 @@ void	PmergeMe::print_arr(T &arry, bool check)
         std::cout << arry[i] << " ";
 	std::cout << std::endl;
 }
-void PmergeMe::launch(char **av, int ac)
+void PmergeMe::launch(std::string line)
 {
-	std::string line = mergeStrings(av + 1, ac -1);
 	ft_add(line, vc);
 	this->print_arr(vc, true);
 	clock_t start = clock();
@@ -124,7 +123,6 @@ void PmergeMe::launch(char **av, int ac)
 	clock_t end = clock();
 	this->print_arr(vc, false);
 	double duration1 = double(end - start);
-	// line = mergeStrings(av + 1, ac -1);
 	ft_add(line, dq);
 	start = clock();
 	FGSsort(dq, dq.begin(), dq.end() - 1);

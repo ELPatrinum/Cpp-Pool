@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:30 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/29 12:02:31 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:16:02 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 	PmergeMe(PmergeMe &other);
 	PmergeMe &operator=(PmergeMe &other);
 	~PmergeMe(void);
-	void launch(char **av, int ac);
+	void launch(std::string line);
 	std::string mergeStrings(char** strings, int count);
 };
 
