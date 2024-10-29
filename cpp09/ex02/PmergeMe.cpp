@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:38 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/28 17:18:01 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/10/29 12:05:02 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,26 @@ void PmergeMe::FGSsort(T &container, typename T::iterator left, typename T::iter
 template <typename T>
 void PmergeMe::ft_add(const std::string &line, T &container)
 {
-	char    *c_line = const_cast<char*>(line.c_str());
-	char	*c_element = strtok(c_line, " ");
-	std::string element(c_element);
-	while(c_element)
-	{
-		if (std::isdigit(element[0]))
-			container.push_back(atoi(element.c_str()));
-		else
-		{
-			throw std::runtime_error("Error");
-		}
-		c_element = strtok(NULL, " ");
-		if (c_element)
-			element = c_element;
-	}
+    char *c_line = new char[line.length() + 1];
+    std::strcpy(c_line, line.c_str());
+    
+    char *c_element = std::strtok(c_line, " ");
+    while (c_element)
+    {
+        std::string element(c_element);
+        if (std::isdigit(element[0]))
+        {
+            container.push_back(std::atoi(element.c_str()));
+        }
+        else
+        {
+            delete[] c_line;
+            throw std::runtime_error("Error: non-numeric input detected");
+        }
+        c_element = std::strtok(NULL, " ");
+    }
+
+    delete[] c_line;
 }
 std::string PmergeMe::mergeStrings(char** strings, int count)
 {
@@ -119,7 +124,7 @@ void PmergeMe::launch(char **av, int ac)
 	clock_t end = clock();
 	this->print_arr(vc, false);
 	double duration1 = double(end - start);
-	line = mergeStrings(av + 1, ac -1);
+	// line = mergeStrings(av + 1, ac -1);
 	ft_add(line, dq);
 	start = clock();
 	FGSsort(dq, dq.begin(), dq.end() - 1);
