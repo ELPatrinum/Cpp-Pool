@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:30 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/29 12:16:02 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/11/03 21:36:18 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <cstdlib>
 # include <stdexcept>
 # include <iostream>
+# include <algorithm>
 # include <vector>
 # include <deque>
+
 class PmergeMe
 {
 	std::vector<int> vc;

@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:38 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/29 12:21:04 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/11/03 21:47:10 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,3 +131,93 @@ void PmergeMe::launch(std::string line)
 	std::cout << "Time taken using [std::vector] : " << duration1 * 1000 << " ms" << std::endl;
 	std::cout << "Time taken using [std::deque] : " << duration2 * 1000 << " ms" << std::endl;
 }
+
+
+// Function to insert element into sorted portion of the vector using binary search
+void binary_insert(std::vector<int>& vec, int value, int end)
+{
+    std::vector<int>::iterator pos = std::lower_bound(vec.begin(), vec.begin() + end, value);
+    vec.insert(pos, value);
+    vec.erase(vec.begin() + end + 1); // Remove the redundant element at the end after insertion
+}
+
+
+
+
+
+// Recursive function to divide, sort, and merge vector in place
+void recursive_sort(std::vector<int>& vec, int start, int end)
+{
+    if (start >= end)
+        return;
+
+    int mid = start + (end - start) / 2;
+
+    // Divide the vector into two halves
+    recursive_sort(vec, start, mid);
+    recursive_sort(vec, mid + 1, end);
+
+    // Temporary vector to hold the sorted merge of two halves
+    std::vector<int> merged;
+
+    // Merge two sorted halves into 'merged' using binary insertion
+    for (int i = start; i <= mid; ++i)
+        binary_insert(merged, vec[i], merged.size());
+    for (int i = mid + 1; i <= end; ++i)
+        binary_insert(merged, vec[i], merged.size());
+
+    // Copy merged result back into the original vector
+    for (int i = 0; i < merged.size(); ++i)
+        vec[start + i] = merged[i];
+}
+
+// Wrapper function to sort the entire vector in place
+void sort_vector(std::vector<int>& vec)
+{
+    if (vec.empty())
+		return;
+	int start, end;
+	start = 0; end = vec.size() - 1;
+    recursive_sort(vec, 0, vec.size() - 1);
+}
+
+
+
+
+
+// // Function to insert element into sorted vector using binary search
+// void binary_insert(std::vector<int>& sorted_vec, int value)
+// {
+//     std::vector<int>::iterator pos = std::lower_bound(sorted_vec.begin(), sorted_vec.end(), value);
+//     sorted_vec.insert(pos, value);
+// }
+
+// // Recursive function to divide, sort, and merge vector
+// std::vector<int> recursive_sort(std::vector<int>& vec, int start, int end)
+// {
+//     if (start >= end)
+//         return std::vector<int>(1, vec[start]);
+
+//     int mid = start + (end - start) / 2;
+
+//     // Divide the vector into two halves
+//     std::vector<int> left = recursive_sort(vec, start, mid);
+//     std::vector<int> right = recursive_sort(vec, mid + 1, end);
+
+//     // Merge two sorted halves using binary insertion
+//     std::vector<int> merged;
+//     for (size_t i = 0; i < left.size(); ++i)
+//         binary_insert(merged, left[i]);
+//     for (size_t i = 0; i < right.size(); ++i)
+//         binary_insert(merged, right[i]);
+
+//     return (merged);
+// }
+
+// // Wrapper function to sort the entire vector
+// std::vector<int> sort_vector(std::vector<int>& vec)
+// {
+//     if (vec.empty())
+// 		return vec;
+//     return recursive_sort(vec, 0, vec.size() - 1);
+// }
