@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:30 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/11/03 21:36:18 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/11/04 11:32:24 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdexcept>
 # include <iostream>
 # include <algorithm>
+# include <sys/time.h> 
 # include <vector>
 # include <deque>
 
@@ -26,9 +27,9 @@ class PmergeMe
 	std::vector<int> vc;
 	std::deque<int> dq;
 	template <typename T>
-	void	FGSsort(T& container, typename T::iterator left, typename T::iterator right);
-	template <typename T>
-	void	ft_merge(T& container, typename T::iterator left, typename T::iterator mid, typename T::iterator right);
+	void	FGSsort(T &container);
+	// template <typename T>
+	// void	ft_merge(T& container, typename T::iterator left, typename T::iterator mid, typename T::iterator right);
 	template <typename T>
 	void	ft_add(const std::string& line, T& container);
 	template <typename T>
