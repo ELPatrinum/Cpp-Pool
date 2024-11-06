@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:34:38 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/11/04 11:49:11 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/11/06 12:23:52 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,43 +68,42 @@ std::string PmergeMe::mergeStrings(char** strings, int count)
 }
 
 template <typename T>
-void binary_insert(T &container, int value, int end)
+void mergeInsertionSort(T &container, int start, int end)
 {
-	typename T::iterator pos = std::lower_bound(container.begin(), container.begin() + end, value);
-	container.insert(pos, value);
-}
-
-template <typename T>
-void devide_sort(T &container, int start, int end)
-{
-	if (start >= end)
+	if (end - start <= 1)
 		return;
 
 	int mid = start + (end - start) / 2;
 
-	devide_sort(container, start, mid);
-	devide_sort(container, mid + 1, end);
+	mergeInsertionSort(container, start, mid);
+	mergeInsertionSort(container, mid, end);
 
-	// Temporary container to hold the sorted merge of two halves
 	T merged;
 
-	// Merge two sorted halves into 'merged' using binary insertion
-	for (int i = start; i <= mid; ++i)
-		binary_insert(merged, container[i], merged.size());
-	for (int i = mid + 1; i <= end; ++i)
-		binary_insert(merged, container[i], merged.size());
+	int i = start, j = mid;
+	while (i < mid && j < end)
+	{
+		if (container[i] < container[j])
+			merged.push_back(container[i++]);
+		else
+			merged.push_back(container[j++]);
+	}
+	
+	while (i < mid)
+		merged.push_back(container[i++]);
+	while (j < end)
+		merged.push_back(container[j++]);
 
-	// Copy merged result back into the original container
-	for (size_t i = 0; i < merged.size(); ++i)
-		container[start + i] = merged[i];
+	for (size_t k = 0; k < merged.size(); ++k)
+		container[start + k] = merged[k];
 }
 
 template <typename T>
 void PmergeMe::FGSsort(T &container)
 {
-	if (container.empty())
+    if (container.empty())
 		return;
-	devide_sort(container, 0, container.size() - 1);
+    mergeInsertionSort(container, 0, container.size());
 }
 
 template <typename T>
@@ -142,8 +141,52 @@ void PmergeMe::launch(std::string line)
     double duration2 = (end - start) / 1000.0;
     
     std::cout << "Time taken using [std::vector] : " << duration1 << " ms" << std::endl;
-    std::cout << "Time taken using [std::deque ]  : " << duration2 << " ms" << std::endl;
+    std::cout << "Time taken using [std::deque ] : " << duration2 << " ms" << std::endl;
 }
+
+
+// template <typename T>
+// void binary_insert(T &container, int value, int end)
+// {
+// 	typename T::iterator pos = std::lower_bound(container.begin(), container.begin() + end, value);
+// 	container.insert(pos, value);
+// }
+
+// template <typename T>
+// void devide_sort(T &container, int start, int end)
+// {
+// 	if (start >= end)
+// 		return;
+
+// 	int mid = start + (end - start) / 2;
+
+// 	devide_sort(container, start, mid);
+// 	devide_sort(container, mid + 1, end);
+
+// 	T merged;
+
+// 	for (int i = start; i <= mid; ++i)
+// 		binary_insert(merged, container[i], merged.size());
+// 	for (int i = mid + 1; i <= end; ++i)
+// 		binary_insert(merged, container[i], merged.size());
+
+// 	for (size_t i = 0; i < merged.size(); ++i)
+// 		container[start + i] = merged[i];
+// }
+
+// template <typename T>
+// void PmergeMe::FGSsort(T &container)
+// {
+// 	if (container.empty())
+// 		return;
+// 	devide_sort(container, 0, container.size() - 1);
+// }
+
+
+
+
+
+
 
 
 // template <typename T>
