@@ -6,12 +6,11 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:15:37 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/22 10:06:09 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/11/11 12:37:45 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
 
 int main(int ac, char **av)
 {
@@ -23,7 +22,7 @@ int main(int ac, char **av)
 		RPN rpn;
 		rpn.calculate(line);
 	}
-	catch(const std::exception& e)
+	catch(const std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}

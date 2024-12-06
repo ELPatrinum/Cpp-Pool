@@ -6,7 +6,7 @@
 /*   By: muel-bak <muel-bak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 13:07:41 by muel-bak          #+#    #+#             */
-/*   Updated: 2024/10/26 15:48:09 by muel-bak         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:06:23 by muel-bak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 BitcoinExchange::BitcoinExchange(void):filename("test.csv"), dataname("data.csv")
 {
+	if (dataname.size() < 4)
+		throw std::runtime_error("Error: Data File must be in csv format");
+	std::string format = dataname.substr(dataname.size() - 4, dataname.size() - 1);
+	if (format != ".csv")
+		throw std::runtime_error("Error: Data File must be in csv format");
     std::ifstream inputFile(dataname);
+	if (!inputFile.is_open())
+    	throw std::runtime_error("Error: Could not open the file [" + dataname + "]");
     std::string line;
 	std::string key;
 
@@ -25,8 +32,7 @@ BitcoinExchange::BitcoinExchange(void):filename("test.csv"), dataname("data.csv"
 
         key = trimSpaces(line.substr(0, delim));
         float value = atof((trimSpaces(line.substr(delim + 1, line.length()))).c_str());
-        // data[key] = value;
-		data.insert(std::pair<std::string, float>(key, value));
+        data[key] = value;
     }
     inputFile.close();
 }
@@ -159,7 +165,7 @@ void BitcoinExchange::check_find(std::string file)
 	filename = file;
     std::ifstream inputFile(filename.c_str());
     if (!inputFile.is_open())
-        throw std::runtime_error("Error: Could not open the file " + filename);
+        throw std::runtime_error("Error: Could not open the file [" + filename + "]");
 
     std::string line;
     while (std::getline(inputFile, line))
